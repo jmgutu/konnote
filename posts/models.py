@@ -2,16 +2,16 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-from tags.models import Tag
+from tags.models import PostTag
 from topics.models import Topic
-# Create your models here.
+from django.conf import settings
 
 
 class Post(models.Model):
     topic = models.ForeignKey(Topic, default='')
     description = models.CharField(max_length=350, default='')
-    tags = models.ManyToManyField(Tag, default='', blank=True,)
-    created_by = models.ForeignKey(User, default='')
+    tags = models.ManyToManyField(PostTag, default='', blank=True,)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='')
     date_created = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 

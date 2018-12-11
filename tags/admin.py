@@ -5,5 +5,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from tags.models import Tag
-admin.site.register(Tag)
+from tags.models import CustomerTag, StaffTag
+admin.site.register(CustomerTag)
+admin.site.register(StaffTag)

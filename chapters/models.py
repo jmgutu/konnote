@@ -4,14 +4,14 @@ from django.db import models
 from subjects.models import Subject
 from django.contrib.auth.models import User
 from levels.models import Level
-# Create your models here.
+from django.conf import settings
 
 
 class Chapter(models.Model):
     subject = models.ForeignKey(Subject, default='')
     level = models.ForeignKey(Level, default='')
     name = models.CharField(max_length=100, default='')
-    created_by = models.ForeignKey(User, default='')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='')
     date_created = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 

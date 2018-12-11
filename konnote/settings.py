@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'django_filters',
     'levels',
     'subjects',
     'chapters',
@@ -44,6 +46,8 @@ INSTALLED_APPS = [
     'posts',
     'tags',
     'resources',
+    'post_resources',
+    'endusers',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +129,138 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'endusers.User'
+
+NUMBER_OF_CONCURRENT_SESSIONS = 1
+THRESHOLD_NUMBER_OF_LOGIN_ATTEMPTS = 3
+VERFICATION_MAXLENGTH = 6
+CHAR_MAX_LENGTH = 50
+TEXT_AREA_MAX_LENGTH = 250
+MOBILE_MAX_LENGTH = 17
+COLOR_MAX_LENGTH = 6
+POSTAL_CODE_MAX_LENGTH = 6
+DECIMAL_MAX_LENGTH = 10
+DECIMAL_PLACES = 2
+DECIMAL_DEFAULT = 2
+VARIABLE = 4
+SHORT_TEXT_LENGTH = 20
+
+ACCOUNT_TYPES = (('Individual', 'Individual'),
+                 ('Corporate', 'Corporate')
+                 )
+CUSTOMER_PHASE = (('Visitor', 'Visitor'),
+                 ('Prospect', 'Prospect'),
+                 ('Activate User', 'Activate User'),
+                 ('Paying Customer', 'Paying Customer'),
+                 ('Repeat Customer', 'Repeat Customer'),
+                 )
+
+SMS_NOTIFICATION_SETTING_OPTIONS = ((0, 'Off'),
+                 (1, 'On')
+                 )
+EMAIL_NOTIFICATION_SETTING_OPTIONS = ((0, 'Off'),
+                 (1, 'On')
+                 )
+ACCOUNT_STATUS_OPTIONS = ((0, 'Not Activated'),
+                    (1, 'Activated'),
+                    (2, 'Expired'),
+                    (3, 'Dormant'),
+                    (4, 'Pending Deletion'),
+                    (5, 'Blocked'),
+                    )
+GAMIFICATION_OPTIONS = ((0, 'Off'),
+                 (1, 'On')
+                 )
+
+VERIFICATION_OPTIONS = ((0, 'Not Verified'),
+                 (1, 'Verified')
+                 )
+
+MOBILE_OPTIONS = ((0, 'Not Mobile Ready'),
+                 (1, 'Mobile Ready')
+                 )
+
+STAFF_USER_ROLES = (
+                    ('ADMIN', 'Administrator'), # Across Accounts, Full Access
+                    ('MANAGEMENT', 'Management'), # Fortitude Management Staff
+                    ('CUSTOMER CARE', 'Customer Care'), # Fortitude Staff + Customer Care
+                 )
+
+CUSTOMER_USER_ROLES = (
+                    ('CUST ADMIN', 'Customer Administrator'), # Create Users within limit of Account Product
+                    ('CUST STAFF', 'Customer Staff'),
+                    ('CUSTOMER', 'Customer'),
+                 )
+
+COURSE_AVAILABILITY = ((0, 'Unavailable'),
+                 (1, 'Available')
+                 )
+
+CUSTOM_WORKFLOWS = (
+                (0, 'Unavailable'),
+                (1, 'Available')
+                 )
+
+PROMOTION_TYPES = (
+                (0, 'Percentage'),
+                (1, 'Value')
+                 )
+
+ADVERTISEMENT_STATUS = ((0, 'Off'),
+                 (1, 'On')
+                 )
+
+FINANCIAL_DURATION_IN_MONTHS = ((1, '1 Month'),
+                (3, '1 Quarter'),
+                (6, '1 Half'),
+                (12, '1 Year'),
+                 )
+
+FINANCIAL_DOCUMENTS = (('Quotation', 'Quotation'),
+                       ('Invoice', 'Invoice'),
+                        ('Receipt', 'Receipt'),
+                 )
+
+COUNTRIES_ONLY = [
+    ('Kenya', 'Kenya'),
+]
+
+PAYMENT_METHOD = (
+                ('M-Pesa', 'M-Pesa'),
+                 )
+
+DATE_FORMAT = "%Y-%m-%d"
+TIME_FORMAT = "%H:%M:%S"
+DATE_TIME_FORMAT = "%Y-%m-%d at %H:%M"
+
+#	if isinstance(o, datetime.date):
+#	    return o.strftime(DATE_FORMAT)
+#	elif isinstance(o, datetime.time):
+#	    return o.strftime(TIME_FORMAT)
+#	elif isinstance(o, datetime.datetime):
+#	    return o.strftime("%s %s" % (DATE_FORMAT, TIME_FORMAT))
+
+GENDER = [
+    (0, 'Female'),
+    (1, 'Male'),
+]
+
+TASK_STATUS = [
+    ('Not Started', 'Not Started'),
+    ('Pending', 'Pending'),
+    ('Complete', 'Complete'),
+]
+
+PRIORITIES = [
+    ('Urgent Important', 'Urgent Important'),
+    ('Urgent Not Important', 'Urgent Not Important'),
+    ('Not Urgent Important', 'Not Urgent Important'),
+    ('Not Urgent Not Important', 'Not Urgent Not Important'),
+]
+
+TICKET_STATUS = [
+    ('Open', 'Open'),
+    ('Ongoing', 'Ongoing'),
+    ('Closed', 'Closed'),
+]
