@@ -233,3 +233,8 @@ PAYMENT_METHOD = (
 DATE_FORMAT = "%Y-%m-%d"
 TIME_FORMAT = "%H:%M:%S"
 DATE_TIME_FORMAT = "%Y-%m-%d at %H:%M"
+
+GENDER = [
+    (0, 'Female'),
+    (1, 'Male'),
+]
