@@ -217,10 +217,6 @@ FINANCIAL_DURATION_IN_MONTHS = ((1, '1 Month'),
                 (12, '1 Year'),
                  )
 
-FINANCIAL_DOCUMENTS = (('Quotation', 'Quotation'),
-                       ('Invoice', 'Invoice'),
-                        ('Receipt', 'Receipt'),
-                 )
 
 COUNTRIES_ONLY = [
     ('Kenya', 'Kenya'),

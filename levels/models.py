@@ -15,8 +15,12 @@ class Level(models.Model):
         default='',
         on_delete=models.CASCADE
     )
-    date_created = models.DateTimeField(auto_now_add=True)
-    modified_date = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField(
+        auto_now_add=True
+    )
+    modified_date = models.DateTimeField(
+        auto_now=True
+    )
 
     def __unicode__(self):
         return self.name
