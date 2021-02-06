@@ -9,7 +9,7 @@ from django.conf import settings
 class Tag(models.Model):
     tag = models.CharField(max_length=20)
     date_created = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='', on_delete=models.CASCADE, related_name='+')
 
     def __unicode__(self):
         return self.tag

@@ -30,7 +30,7 @@ class User(AbstractUser):
     telephone = models.CharField(validators=[regular_expressions.phone_regex], max_length=17, blank=True)
     postal_address = models.CharField(validators=[regular_expressions.postal_code_regex], default='', blank=True,
                                       max_length=6)
-    country = CountryField(default='', blank=True, null=True)
+    country = CountryField(default='', blank=True, null=True, max_length=settings.CHAR_MAX_LENGTH,)
     county = models.CharField(max_length=settings.CHAR_MAX_LENGTH, default='Nairobi')
     bio = models.TextField(max_length=settings.TEXT_AREA_MAX_LENGTH, blank=True)
     birth_date = models.DateField(null=True, blank=True)
@@ -43,7 +43,7 @@ class User(AbstractUser):
     mobile_verification_generation_date = models.DateTimeField(auto_now=True)
     mobile_verification_date = models.DateTimeField(auto_now=True)
     email_verified = models.BooleanField(choices=settings.VERIFICATION_OPTIONS, default=0,)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, related_name='+')
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, related_name='+', on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     modified_date = models.DateTimeField(auto_now=True, null=True)
     profilephoto = models.ImageField(upload_to='static/profiles/', default='profiles/None/no-img.jpg', blank=True,
@@ -80,7 +80,7 @@ class Customer(User):
                                      default=0, null=False, blank=False)
     role = models.CharField(max_length = settings.SHORT_TEXT_LENGTH, choices=settings.CUSTOMER_USER_ROLES, default=0, null=False,
                             blank=False)
-    parent_customer = models.ForeignKey("self", default='', blank=True, null=True)
+    parent_customer = models.ForeignKey("self", default='', blank=True, null=True, on_delete=models.CASCADE)
     #https://docs.djangoproject.com/en/2.1/howto/custom-lookups/
     #https://stackoverflow.com/questions/37946885/how-can-make-the-admin-for-a-foreignkeyself-ban-referring-to-itself
 
@@ -112,7 +112,7 @@ class Customer(User):
 
 class Staff(User):
     is_konnote_staff = models.BooleanField(default=True, editable=False)
-    supervisor = models.ForeignKey("self", default='', blank=True, null=True)
+    supervisor = models.ForeignKey("self", default='', blank=True, null=True, on_delete=models.SET_NULL)
     tags = models.ManyToManyField(StaffTag, default='', blank=True, related_name='+')
     role = models.CharField(max_length = settings.SHORT_TEXT_LENGTH, choices=settings.STAFF_USER_ROLES, default=0, null=False,
                                      blank=False)
