@@ -233,34 +233,3 @@ PAYMENT_METHOD = (
 DATE_FORMAT = "%Y-%m-%d"
 TIME_FORMAT = "%H:%M:%S"
 DATE_TIME_FORMAT = "%Y-%m-%d at %H:%M"
-
-#	if isinstance(o, datetime.date):
-#	    return o.strftime(DATE_FORMAT)
-#	elif isinstance(o, datetime.time):
-#	    return o.strftime(TIME_FORMAT)
-#	elif isinstance(o, datetime.datetime):
-#	    return o.strftime("%s %s" % (DATE_FORMAT, TIME_FORMAT))
-
-GENDER = [
-    (0, 'Female'),
-    (1, 'Male'),
-]
-
-TASK_STATUS = [
-    ('Not Started', 'Not Started'),
-    ('Pending', 'Pending'),
-    ('Complete', 'Complete'),
-]
-
-PRIORITIES = [
-    ('Urgent Important', 'Urgent Important'),
-    ('Urgent Not Important', 'Urgent Not Important'),
-    ('Not Urgent Important', 'Not Urgent Important'),
-    ('Not Urgent Not Important', 'Not Urgent Not Important'),
-]
-
-TICKET_STATUS = [
-    ('Open', 'Open'),
-    ('Ongoing', 'Ongoing'),
-    ('Closed', 'Closed'),
-]
