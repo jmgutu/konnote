@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 from tags.models import PostTag
 from topics.models import Topic
-from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class Post(models.Model):
@@ -22,7 +22,7 @@ class Post(models.Model):
         blank=True
     )
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         default='',
         on_delete=models.CASCADE
     )

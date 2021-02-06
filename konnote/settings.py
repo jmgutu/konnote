@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'tags',
     'resources',
     'post_resources',
-    'endusers',
 ]
 
 MIDDLEWARE = [
@@ -129,8 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
-AUTH_USER_MODEL = 'endusers.User'
 
 NUMBER_OF_CONCURRENT_SESSIONS = 1
 THRESHOLD_NUMBER_OF_LOGIN_ATTEMPTS = 3

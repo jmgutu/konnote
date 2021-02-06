@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class PostType(models.Model):
@@ -19,7 +20,7 @@ class PostType(models.Model):
         max_length=settings.TEXT_AREA_MAX_LENGTH
     )
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         default='',
         on_delete=models.CASCADE
     )

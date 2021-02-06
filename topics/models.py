@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from chapters.models import Chapter
-from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class Topic(models.Model):
@@ -17,7 +17,7 @@ class Topic(models.Model):
         default=''
     )
     created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        User,
         default='',
         on_delete=models.CASCADE
     )
