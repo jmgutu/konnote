@@ -8,10 +8,10 @@ from django.conf import settings
 
 
 class Post(models.Model):
-    topic = models.ForeignKey(Topic, default='')
+    topic = models.ForeignKey(Topic, default='', on_delete=models.CASCADE)
     description = models.CharField(max_length=350, default='')
-    tags = models.ManyToManyField(PostTag, default='', blank=True,)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='')
+    tags = models.ManyToManyField(PostTag, default='', blank=True)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, default='', on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
