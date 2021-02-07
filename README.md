@@ -66,6 +66,15 @@ After successful creation of the super user, run the application.
 (<name_of_virtual_env>) $ python manage.py runserver
 ```
 
+## Entity Relationship
+```
+    Subject
+    └── Level
+        └── Chapter
+             └── Topic
+                  └── Post
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
