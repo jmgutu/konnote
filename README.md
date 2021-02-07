@@ -1,45 +1,59 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Konnote
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+Konnote is an application that helps you relate all the notes that you take down by tagging each note, and relating it to other notes with similar tags.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## What problem does it solve?
 
----
+I love to take notes on everything, all the time! When it came time to using those notes, I had to search the different sites and files I had saved my notes on (Assuming that I find all of them, of course). So this tool is what I used to save my notes, then relate all topics e.g best practices, code smells, setup script, documentation, tricks etc.
 
-## Edit a file
+## Installation
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+First, clone the repository.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+```bash
+$ git clone https://github.com/jmgutu/konnote.git
+```
+Create a virtual environment in a directory of your choosing. Use python 3.7 or python 3.8.
 
----
+```bash
+$ python -m venv <name_of_virtual_env>
+```
+Activate the virtual environment
 
-## Create a file
+```bash
+$ source <name_of_virtual_env>/bin/activate
+```
+The name of the environment should appear on the leftmost of the prompt.
+```bash
+(<name_of_virtual_env>) $ source <name_of_virtual_env>/bin/activate
+```
+Navigate into konnote.
 
-Next, you’ll add a new file to this repository.
+```bash
+(<name_of_virtual_env>) $ cd konnote
+```
+Install the requirements into the newly created virtual environment.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+```bash
+(<name_of_virtual_env>) $ pip install wheel
+(<name_of_virtual_env>) $ pip install -r requirements.txt
+```
+After the packages have been installed, you need migrate.
+```bash
+(<name_of_virtual_env>) $ python manage.py migrate
+```
+Once the migrations have been done, create a superuser.
+```bash
+(<name_of_virtual_env>) $ python manage.py createsuperuser
+```
+After successful creation of the super user, run the application.
+```bash
+(<name_of_virtual_env>) $ python manage.py runserver
+```
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+Please make sure to update tests as appropriate.
 
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
