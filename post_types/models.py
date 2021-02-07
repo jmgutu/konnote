@@ -10,10 +10,10 @@ class PostType(models.Model):
     A PostType can be Image, Video or Text
     """
     post_types = (
-        ('Image'),
-        ('Video'),
-        ('Text'),
-        ('URL')
+        ('Image', 'Image',),
+        ('Video', 'Video'),
+        ('Text', 'Text'),
+        ('URL', 'URL')
     )
     name = models.CharField(
         choices=post_types,

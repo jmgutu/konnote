@@ -12,14 +12,16 @@ class PostResource(models.Model):
     A PostResource is a resource allocated to a resource.
     """
     post = models.ForeignKey(
-        Resource,
+        Post,
         default='',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="posts"
     )
     resource = models.ForeignKey(
         Resource,
         default='',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="resource"
     )
     description = models.CharField(
         max_length=350,
