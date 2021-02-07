@@ -69,11 +69,20 @@ After successful creation of the super user, run the application.
 ## Entity Relationship
 ```
     Subject
-    └── Level
         └── Chapter
              └── Topic
                   └── Post
 ```
+
+| Entity       | Definition           |
+| ------------- |:-------------:|
+| Subject      | The name of a discipline or language. A noun. |
+| Chapter      | A collection of similar topics within the same subject.|
+| Topic | The smallest unit a Subject can be broken down into.      |
+| Post      | Text, Video, Image or URL that is to be saved. |
+| Post Type      | Either Image, Video or Text      |
+| Tag | A Word or short phrase that can be used to describe a post. E.g django, models, fields, format etc      |
+|Post Resource| A resource allocated to a Post.|
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

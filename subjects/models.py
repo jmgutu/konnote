@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 
 class Subject(models.Model):
+    """
+    The name of a discipline or language. A noun.
+    """
     name = models.CharField(
         max_length=100,
         default=''

@@ -8,6 +8,9 @@ from utility.helpers import generate_str
 
 
 class Chapter(models.Model):
+    """
+    A chapter is a collection of similar topics within the same subject.
+    """
     subject = models.ForeignKey(
         Subject,
         default=None,

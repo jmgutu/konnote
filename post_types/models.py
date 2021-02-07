@@ -6,7 +6,17 @@ from django.contrib.auth.models import User
 
 
 class PostType(models.Model):
+    """
+    A PostType can be Image, Video or Text
+    """
+    post_types = (
+        ('Image'),
+        ('Video'),
+        ('Text'),
+        ('URL')
+    )
     name = models.CharField(
+        choices=post_types,
         default='',
         null=False,
         blank=False,

@@ -8,12 +8,13 @@ from utility.helpers import generate_str
 
 
 class PostResource(models.Model):
+    """
+    A PostResource is a resource allocated to a resource.
+    """
     post = models.ForeignKey(
-        Post,
-        default=None,
-        on_delete=models.SET_NULL,
-        blank=True,
-        null=True
+        Resource,
+        default='',
+        on_delete=models.CASCADE
     )
     resource = models.ForeignKey(
         Resource,

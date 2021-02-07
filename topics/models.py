@@ -8,6 +8,9 @@ from utility.helpers import generate_str
 
 
 class Topic(models.Model):
+    """
+    The smallest unit a Subject can be broken down into.
+    """
     chapter = models.ForeignKey(
         Chapter,
         default=None,

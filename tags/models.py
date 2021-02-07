@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 
 class Tag(models.Model):
+    """
+    A Word or short phrase that can be used to describe a post. E.g django, models, fields, format etc
+    """
     tag = models.CharField(
         max_length=30
     )

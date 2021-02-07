@@ -9,6 +9,9 @@ from post_types.models import PostType
 
 
 class Post(models.Model):
+    """
+    The Text, Video, Image or URL that is to be saved.
+    """
     topic = models.ForeignKey(
         Topic,
         default=None,

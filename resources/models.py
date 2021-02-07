@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 
 
 class Resource(models.Model):
+    """
+    The Document or Image to relate to a post.
+    """
     title = models.CharField(
         max_length=100,
         blank=True,
