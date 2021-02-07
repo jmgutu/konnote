@@ -21,6 +21,11 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Make envfile
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_DEBUG: false
+        envkey_SECRET_KEY: ${{ secrets.KONNOTE_SECRET_KEY }}
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
