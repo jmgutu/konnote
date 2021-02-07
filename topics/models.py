@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from chapters.models import Chapter
 from django.contrib.auth.models import User
+from utility.helpers import generate_str
 
 
 class Topic(models.Model):
@@ -29,11 +30,19 @@ class Topic(models.Model):
     )
 
     def __unicode__(self):
-        return ''.join([
+        return generate_str([
             self.chapter.level.name,
             ' | ',
             self.chapter.name,
             ' | ',
+            self.name
+            ]
+        )
+
+    def __str__(self):
+        return generate_str([
+            self.chapter.level.name,
+            self.chapter.name,
             self.name
             ]
         )

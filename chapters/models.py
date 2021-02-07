@@ -4,6 +4,7 @@ from django.db import models
 from subjects.models import Subject
 from django.contrib.auth.models import User
 from levels.models import Level
+from utility.helpers import generate_str
 
 
 class Chapter(models.Model):
@@ -17,4 +18,5 @@ class Chapter(models.Model):
     def __unicode__(self):
         return self.subject.name + ' | ' + self.level.name + ' | ' + self.name
 
-#  This class is not linked to any other entity and therefore, does not need a field of any other type in this class
+    def __str__(self):
+        return generate_str([self.subject.name, self.level.name, self.name])

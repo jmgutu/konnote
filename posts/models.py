@@ -1,9 +1,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from tags.models import PostTag
+from tags.models import Tag
 from topics.models import Topic
 from django.contrib.auth.models import User
+from utility.helpers import generate_str
 
 
 class Post(models.Model):
@@ -17,7 +18,7 @@ class Post(models.Model):
         default=''
     )
     tags = models.ManyToManyField(
-        PostTag,
+        Tag,
         default='',
         blank=True
     )
@@ -34,4 +35,15 @@ class Post(models.Model):
     )
 
     def __unicode__(self):
-        return self.topic.name + ' | ' + self.description
+        return generate_str([
+            self.topic.name,
+            self.description
+            ]
+        )
+
+    def __str__(self):
+        return generate_str([
+            self.topic.name,
+            self.description
+            ]
+        )
