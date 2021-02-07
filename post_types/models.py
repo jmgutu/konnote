@@ -11,13 +11,13 @@ class PostType(models.Model):
         default='',
         null=False,
         blank=False,
-        max_length=settings.CHAR_MAX_LENGTH
+        max_length=100,
     )
     description = models.TextField(
         default='',
         null=False,
         blank=False,
-        max_length=settings.TEXT_AREA_MAX_LENGTH
+        max_length=350,
     )
     created_by = models.ForeignKey(
         User,

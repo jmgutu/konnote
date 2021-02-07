@@ -5,6 +5,7 @@ from tags.models import Tag
 from topics.models import Topic
 from django.contrib.auth.models import User
 from utility.helpers import generate_str
+from post_types.models import PostType
 
 
 class Post(models.Model):
@@ -13,9 +14,14 @@ class Post(models.Model):
         default='',
         on_delete=models.CASCADE
     )
-    description = models.CharField(
+    post_type = models.ForeignKey(
+        PostType,
+        default='',
+        on_delete=models.CASCADE
+    )
+    description = models.TextField(
+        default='',
         max_length=350,
-        default=''
     )
     tags = models.ManyToManyField(
         Tag,
