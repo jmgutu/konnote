@@ -10,8 +10,10 @@ from utility.helpers import generate_str
 class Topic(models.Model):
     chapter = models.ForeignKey(
         Chapter,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     name = models.CharField(
         max_length=100,
@@ -19,8 +21,10 @@ class Topic(models.Model):
     )
     created_by = models.ForeignKey(
         User,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     date_created = models.DateTimeField(
         auto_now_add=True

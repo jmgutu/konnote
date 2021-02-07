@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Tag(models.Model):
     tag = models.CharField(
-        max_length=20
+        max_length=30
     )
 
     date_created = models.DateTimeField(
@@ -15,8 +15,10 @@ class Tag(models.Model):
     )
     created_by = models.ForeignKey(
         User,
-        default='',
-        on_delete=models.CASCADE,
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
 
     @property

@@ -11,13 +11,17 @@ from post_types.models import PostType
 class Post(models.Model):
     topic = models.ForeignKey(
         Topic,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     post_type = models.ForeignKey(
         PostType,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     description = models.TextField(
         default='',
@@ -30,8 +34,10 @@ class Post(models.Model):
     )
     created_by = models.ForeignKey(
         User,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     date_created = models.DateTimeField(
         auto_now_add=True

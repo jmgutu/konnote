@@ -10,8 +10,10 @@ from utility.helpers import generate_str
 class PostResource(models.Model):
     post = models.ForeignKey(
         Post,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     resource = models.ForeignKey(
         Resource,
@@ -24,8 +26,10 @@ class PostResource(models.Model):
     )
     created_by = models.ForeignKey(
         User,
-        default='',
-        on_delete=models.CASCADE
+        default=None,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True
     )
     date_created = models.DateTimeField(
         auto_now_add=True

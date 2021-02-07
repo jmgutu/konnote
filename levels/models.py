@@ -13,7 +13,9 @@ class Level(models.Model):
     created_by = models.ForeignKey(
         User,
         default='',
-        on_delete=models.CASCADE
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
     )
     date_created = models.DateTimeField(
         auto_now_add=True
