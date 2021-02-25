@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'fontawesome_5',
+    'crispy_forms',
     'levels',
     'subjects',
     'chapters',
@@ -67,7 +69,7 @@ ROOT_URLCONF = 'konnote.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'static/assets/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_URL = '/static/static/'
+
+STATICFILES_DIRS = [
+    ("css", os.path.join(BASE_DIR, "static/assets/css")),
+    ("images", os.path.join(BASE_DIR, "static/assets/images")),
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")

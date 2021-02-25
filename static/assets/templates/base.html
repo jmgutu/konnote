@@ -1,0 +1,29 @@
+
+<h1>Welcome to Django Practice</h1>
+
+
+{% block page-sub-header %}
+<h2>Welcome to Django Chapters</h2>
+{% endblock %}
+
+This is a variable <b>{{ day }}</b> and the time is <u>{{ time }}</u>
+
+<br>
+<hr>
+<br>
+{% block page-content %}
+{% for i in my_list%}
+    {{ i }}. This will be repeated.<br>
+{% endfor %}
+<br>
+<hr>
+{% for j in all_chapters%}
+    <button type="button" class="btn btn-primary">{{ j.name }}</button>
+{% endfor %}
+{% endblock %}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
