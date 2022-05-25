@@ -48,6 +48,7 @@ class Topic(models.Model):
 
     def __str__(self):
         return generate_str([
+            self.chapter.subject.name,
             self.chapter.level.name,
             self.chapter.name,
             self.name
