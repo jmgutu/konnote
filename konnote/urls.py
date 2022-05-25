@@ -15,9 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from chapters.views import chapters
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^chapters/', chapters, name='chapters'),
 ]

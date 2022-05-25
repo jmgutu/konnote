@@ -41,8 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'fontawesome_5',
-    'crispy_forms',
     'levels',
     'subjects',
     'chapters',
